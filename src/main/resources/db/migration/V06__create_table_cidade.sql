@@ -4,7 +4,7 @@ CREATE TABLE cidade (
   codigo_estado bigint(20) DEFAULT NULL,
   FOREIGN KEY (codigo_estado) REFERENCES estado (codigo)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+/*
 insert into cidade (codigo, nome, codigo_estado) values (1, 'Acrelândia', 1);
 insert into cidade (codigo, nome, codigo_estado) values (2, 'Assis Brasil', 1);
 insert into cidade (codigo, nome, codigo_estado) values (3, 'Brasiléia', 1);
@@ -623,7 +623,7 @@ insert into cidade (codigo, nome, codigo_estado) values (615, 'Vitória da Conqu
 insert into cidade (codigo, nome, codigo_estado) values (616, 'Wagner', 5);
 insert into cidade (codigo, nome, codigo_estado) values (617, 'Wanderley', 5);
 insert into cidade (codigo, nome, codigo_estado) values (618, 'Wenceslau Guimarães', 5);
-insert into cidade (codigo, nome, codigo_estado) values (619, 'Xique-Xique', 5);
+insert into cidade (codigo, nome, codigo_estado) values (619, 'Xique-Xique', 5);*/
 insert into cidade (codigo, nome, codigo_estado) values (620, 'Abaiara', 6);
 insert into cidade (codigo, nome, codigo_estado) values (621, 'Acarape', 6);
 insert into cidade (codigo, nome, codigo_estado) values (622, 'Acaraú', 6);
@@ -808,7 +808,7 @@ insert into cidade (codigo, nome, codigo_estado) values (800, 'Uruoca', 6);
 insert into cidade (codigo, nome, codigo_estado) values (801, 'Varjota', 6);
 insert into cidade (codigo, nome, codigo_estado) values (802, 'Várzea Alegre', 6);
 insert into cidade (codigo, nome, codigo_estado) values (803, 'Viçosa do Ceará', 6);
-insert into cidade (codigo, nome, codigo_estado) values (804, 'Brasília', 7);
+/*insert into cidade (codigo, nome, codigo_estado) values (804, 'Brasília', 7);
 insert into cidade (codigo, nome, codigo_estado) values (805, 'Afonso Cláudio', 8);
 insert into cidade (codigo, nome, codigo_estado) values (806, 'Águia Branca', 8);
 insert into cidade (codigo, nome, codigo_estado) values (807, 'Água Doce do Norte', 8);
@@ -5569,4 +5569,4 @@ insert into cidade (codigo, nome, codigo_estado) values (5561, 'Tocantinópolis'
 insert into cidade (codigo, nome, codigo_estado) values (5562, 'Tupirama', 27);
 insert into cidade (codigo, nome, codigo_estado) values (5563, 'Tupiratins', 27);
 insert into cidade (codigo, nome, codigo_estado) values (5564, 'Wanderlândia', 27);
-insert into cidade (codigo, nome, codigo_estado) values (5565, 'Xambioá', 27);
+insert into cidade (codigo, nome, codigo_estado) values (5565, 'Xambioá', 27);*/

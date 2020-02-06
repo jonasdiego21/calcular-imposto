@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html 
+	lang="pt-br"
+	xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="'Index'">
+    
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <title></title>
+</head>
+
+<body>
+	<div class="container" layout:fragment="conteudo">
+		<div class="row conatiner-fluid">
+			<div class="card bg-dark col-sm-4 p-4" onClick="location.href='/proprietarios'">
+				<h1 class="text-white m-2 p-2 text-center">[[${totalProprietarios}]]</h1>
+				<span class="text-white text-center">Total de proprietários</span>
+			</div>
+			
+			<div class="card bg-dark col-sm-4 p-4" onClick="location.href='/imoveis'">
+				<h1 class="text-white m-2 p-2 text-center">[[${totalImoveis}]]</h1>
+				<span class="text-white text-center">Total de imoveis</span>
+			</div>
+			
+			<div class="card bg-dark col-sm-4 p-4" onClick="location.href='/usuarios'">
+				<h1 class="text-white m-2 p-2 text-center">[[${totalUsuarios}]]</h1>
+				<span class="text-white text-center">Total de usuarios</span>
+			</div>
+		</div>
+	</div>
+	
+  	<!-- JavaScript -->
+  	<th:block layout:fragment="javascripts"></th:block>
+</body>
+</html>

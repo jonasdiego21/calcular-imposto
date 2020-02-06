@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html 
+    lang="pt-br"
+    xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="'Index'"
+    th:with="currentPage='imovel'">
+    
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <title></title>
+</head>
+
+<body>
+	<div class="container" layout:fragment="conteudo">
+		<h1 class="text-center">Pesquisar Imóvel</h1>
+
+		<div aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a th:href="@{/}">Dashboard</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Imóveis</li>
+				<li class="breadcrumb-item"><a th:href="@{/imoveis/novo}">Novo</a></li>
+			</ol>
+		</div>
+
+		<form method="GET" th:object="${imovelFilter}" th:action="@{/imoveis}">
+			<div class="row">
+				<div class="form-group col-sm-3">
+					<label class="form-control-label" for="proprietario"><span class="text-danger">*</span>Proprietário</label>
+					
+					<select th:field="*{proprietario}" class="form-control" id="proprietario" th:errorclass="is-invalid">
+						<option value="">Selecione o proprietário</option>
+						<option th:each="proprietario : ${proprietarios}" th:value="${proprietario.codigo}" th:text="${proprietario.nome}"></option>
+					</select>
+				</div>
+				
+				<div class="form-group col-sm-4">
+					<label class="form-control-label" for="logradouro">Logradouro/Rua/Avenida</label>
+					<input type="text" th:field="*{logradouro}" class="form-control" id="logradouro" autocomplete="off">
+				</div>
+				
+				<div class="form-group col-sm-2">
+					<label class="form-control-label" for="numero">Número</label>
+					<input type="text" th:field="*{numero}" class="form-control" id="numero" autocomplete="off">
+				</div>
+				
+				<div class="form-group col-sm-3">
+					<label class="form-control-label" for="bairro">Bairro/Distrito</label>
+					<input type="text" th:field="*{bairro}" class="form-control" id="bairro" autocomplete="off">
+				</div>
+			</div>
+			
+			<hr />
+			
+			<div class="row mb-3">
+				<div class="col-sm-12 text-right">
+					<button type="submit" class="btn btn-primary"><i class="fas fa-filter"></i> Pesquisar</button>
+				</div>
+			</div>
+		</form>
+
+		<div class="row">
+			<div class="col-sm-12 table-responsive">
+				<table class="table table-hover table-bordered table-striped">
+					<thead class="thead-dark">
+						<tr>
+						<th style="width: 10%;" class="text-center">CÓDIGO</th>
+						<th>PROPRIETÁRIO</th>
+						<th>IMÓVEL</th>
+						<th style="width: 10%;" class="text-center">ÁREA TOTAL</th>
+						<th style="width: 15%;" class="text-center">VALOR VENAL TOTAL</th>
+						<th style="width: 15%;" class="text-center">VALOR DO IMPOSTO</th>
+						<th style="width: 10%;" colspan="2" class="text-center">AÇÕES</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="imovel : ${pagina.content}">
+							<td class="text-center" th:text="${imovel.codigo}"></td>
+							<td th:text="${imovel.proprietario.nome}"></td>
+							<td 
+								th:text="|${imovel.proprietario.endereco.logradouro}, ${imovel.proprietario.endereco.numero}, 
+								${imovel.proprietario.endereco.bairro}, ${imovel.proprietario.endereco.cidade.nome}, 
+								${imovel.proprietario.endereco.estado.sigla}|">
+							</td>
+							<td class="text-center">[[${{imovel.areaTotal}}]] m<sup>2</sup></td>
+							<td class="text-center">R$ [[${{imovel.valorVenalTotal}}]]</td>
+							<td class="text-center">R$ [[${{imovel.valorImposto}}]]</td>
+							
+							<td class="text-center">
+								<div>
+									<a th:href="@{|/imoveis/${imovel.codigo}|}" data-toggle="tooltip" title="EDITAR" data-position="top">
+										<i class="fas fa-pencil-alt"></i>
+									</a>
+								</div>
+							</td>
+							
+							<td class="text-center" data-toggle="tooltip" title="EXCLUIR" data-position="top"> 
+								<div>
+									<a href="javascript:;" class="js-btn-excluir" th:url="@{|/imoveis/${imovel.codigo}|}">
+										<i class="fas fa-trash-alt text-danger"></i>
+									</a>
+								</div>
+							</td>
+						</tr>
+						
+						<tr th:if="${#lists.isEmpty(pagina.content)}">
+							<td colspan="8" class="text-center">Nenhuma informação encontrado!</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			<th:block th:include="componentes/Pagination"></th:block>
+		</div>
+	</div>
+	
+  	<!-- JavaScript -->
+  	<th:block layout:fragment="javascripts">
+  	<script th:src="@{vendor/sweetalert/sweetalert.min.js}"></script>
+  	<script th:src="@{js/global.dialogo-excluir.js}"></script>
+  	</th:block>
+  	
+  	<script>
+	$(document).ready(function(){
+	  $('[data-toggle="tooltip"]').tooltip();
+	});
+	</script>
+</body>
+</html>

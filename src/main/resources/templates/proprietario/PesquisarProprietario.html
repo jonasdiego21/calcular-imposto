@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html 
+    lang="pt-br"
+    xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="'Index'"
+    th:with="currentPage='proprietario'">
+    
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <title></title>
+</head>
+
+<body>
+	<div class="container" layout:fragment="conteudo">
+		<h1 class="text-center">Pesquisar Proprietário</h1>
+
+		<div aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a th:href="@{/}">Dashboard</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Proprietários</li>
+				<li class="breadcrumb-item"><a th:href="@{/proprietarios/novo}">Novo</a></li>
+			</ol>
+		</div>
+
+		<form method="GET" th:object="${proprietarioFilter}" th:action="@{/proprietarios}">
+			<div class="row">
+				<div class="form-group col-sm-12">
+					<label class="form-control-label" for="nome">Nome</label>
+					<input type="text" th:field="*{nome}" class="form-control" id="nome" autocomplete="off">
+				</div>
+			</div>	
+
+			<div class="row">
+				<div class="form-group col-sm-6">
+					<label class="form-control-label" for="logradouro">Logradouro/Rua/Avenida</label>
+					<input type="text" th:field="*{logradouro}" class="form-control" id="logradouro" autocomplete="off">
+				</div>
+				
+				<div class="form-group col-sm-2">
+					<label class="form-control-label" for="numero">Número</label>
+					<input type="text" th:field="*{numero}" class="form-control" id="numero" autocomplete="off">
+				</div>
+				
+				<div class="form-group col-sm-4">
+					<label class="form-control-label" for="bairro">Bairro/Distrito</label>
+					<input type="text" th:field="*{bairro}" class="form-control" id="bairro" autocomplete="off">
+				</div>
+			</div>
+			
+			<hr />
+			
+			<div class="row mb-3">
+				<div class="col-sm-12 text-right">
+					<button type="submit" class="btn btn-primary"><i class="fas fa-filter"></i> Pesquisar</button>
+				</div>
+			</div>
+		</form>
+
+		<div class="row">
+			<div class="col-sm-12 table-responsive">
+				<table class="table table-hover table-bordered table-striped">
+					<thead class="thead-dark">
+						<tr>
+						<th style="width: 10%;" class="text-center">CÓDIGO</th>
+						<th style="width: 40%;">NOME</th>
+						<th style="width: 40%;">ENDEREÇO</th>
+						<th style="width: 10%;" colspan="2" class="text-center">AÇÕES</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="proprietario : ${pagina.content}">
+							<td class="text-center" th:text="${proprietario.codigo}"></td>
+							<td th:text="${proprietario.nome}"></td>
+							<td 
+								th:text="|${proprietario.endereco.logradouro}, ${proprietario.endereco.numero}, 
+								${proprietario.endereco.bairro}, ${proprietario.endereco.cidade.nome}, 
+								${proprietario.endereco.estado.sigla}|">
+							</td>
+							
+							<td class="text-center">
+								<div th:if="${#strings.contains(#authentication.principal.authorities, 'PESQUISAR_PROPRIETARIO')}">
+									<a th:href="@{|/proprietarios/${proprietario.codigo}|}" data-toggle="tooltip" title="EDITAR" data-position="top">
+										<i class="fas fa-pencil-alt"></i>
+									</a>
+								</div>
+							</td>
+							<td class="text-center" data-toggle="tooltip" title="EXCLUIR" data-position="top"> 
+								<div th:if="${#strings.contains(#authentication.principal.authorities, 'PESQUISAR_PROPRIETARIO')}">
+									<a href="javascript:;" class="js-btn-excluir" th:url="@{|/proprietarios/${proprietario.codigo}|}">
+										<i class="fas fa-trash-alt text-danger"></i>
+									</a>
+								</div>
+							</td>
+						</tr>
+						
+						<tr th:if="${#lists.isEmpty(pagina.content)}">
+							<td colspan="5" class="text-center">Nenhuma informação encontrado!</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			<th:block th:include="componentes/Pagination"></th:block>
+		</div>
+	</div>
+	
+  	<!-- JavaScript -->
+  	<th:block layout:fragment="javascripts">
+  	<script th:src="@{vendor/sweetalert/sweetalert.min.js}"></script>
+  	<script th:src="@{js/global.dialogo-excluir.js}"></script>
+  	</th:block>
+  	
+  	<script>
+	$(document).ready(function(){
+	  $('[data-toggle="tooltip"]').tooltip();
+	});
+	</script>
+</body>
+</html>

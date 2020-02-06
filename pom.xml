@@ -40,11 +40,11 @@
 
 	<dependencies>
 		<!-- GENERATE GETTER | SETTER -->
-		<dependency>
+		<!--<dependency>
 		    <groupId>org.projectlombok</groupId>
 		    <artifactId>lombok</artifactId>
 		    <scope>provided</scope>
-		</dependency>
+		</dependency>-->
 		
 		<!-- SPRING DATA JPA -->
 		<dependency>
@@ -56,7 +56,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
+			<scope>compile</scope>
 		</dependency>
 		
 		<!-- FLYWAY | MIGRATION -->

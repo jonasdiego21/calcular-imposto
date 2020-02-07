@@ -808,7 +808,7 @@ insert into cidade (codigo, nome, codigo_estado) values (800, 'Uruoca', 6);
 insert into cidade (codigo, nome, codigo_estado) values (801, 'Varjota', 6);
 insert into cidade (codigo, nome, codigo_estado) values (802, 'Várzea Alegre', 6);
 insert into cidade (codigo, nome, codigo_estado) values (803, 'Viçosa do Ceará', 6);
-/*insert into cidade (codigo, nome, codigo_estado) values (804, 'Brasília', 7);
+insert into cidade (codigo, nome, codigo_estado) values (804, 'Brasília', 7);
 insert into cidade (codigo, nome, codigo_estado) values (805, 'Afonso Cláudio', 8);
 insert into cidade (codigo, nome, codigo_estado) values (806, 'Águia Branca', 8);
 insert into cidade (codigo, nome, codigo_estado) values (807, 'Água Doce do Norte', 8);
@@ -5569,4 +5569,4 @@ insert into cidade (codigo, nome, codigo_estado) values (5561, 'Tocantinópolis'
 insert into cidade (codigo, nome, codigo_estado) values (5562, 'Tupirama', 27);
 insert into cidade (codigo, nome, codigo_estado) values (5563, 'Tupiratins', 27);
 insert into cidade (codigo, nome, codigo_estado) values (5564, 'Wanderlândia', 27);
-insert into cidade (codigo, nome, codigo_estado) values (5565, 'Xambioá', 27);*/
+insert into cidade (codigo, nome, codigo_estado) values (5565, 'Xambioá', 27);

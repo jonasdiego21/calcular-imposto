@@ -9,5 +9,4 @@ public class IntersolSistemaImpostoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(IntersolSistemaImpostoApplication.class, args);
 	}
-
 }

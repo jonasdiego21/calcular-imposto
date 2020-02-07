@@ -26,26 +26,19 @@
 		
 		<!-- JAVA VERSION -->
 		<java.version>1.8</java.version>
-
-		<!-- JACKSON VERSION -->
-		<jackson-databind.version>2.7.5</jackson-databind.version>
 		
 		<!-- THYMELEAF VERSION -->
 		<thymeleaf-extras-springsecurity.version>3.0.4.RELEASE</thymeleaf-extras-springsecurity.version>
+		
+		<!-- MySQL Connector -->
+		<mysql-connector-java.version></mysql-connector-java.version>
 		
 		<!-- JASPER IREPORT VERSION -->
 		<jasperreports.version>6.3.0</jasperreports.version>
 		<jasperreports-fonts.version>6.0.0</jasperreports-fonts.version>
 	</properties>
 
-	<dependencies>
-		<!-- GENERATE GETTER | SETTER -->
-		<!--<dependency>
-		    <groupId>org.projectlombok</groupId>
-		    <artifactId>lombok</artifactId>
-		    <scope>provided</scope>
-		</dependency>-->
-		
+	<dependencies>		
 		<!-- SPRING DATA JPA -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -56,7 +49,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<scope>compile</scope>
+			<scope>runtime</scope>
 		</dependency>
 		
 		<!-- FLYWAY | MIGRATION -->
@@ -107,18 +100,6 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
-		<!-- LOGS | LSF4J -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-		</dependency>
-
-		<!-- CACHE -->
-		<dependency> 
-			<groupId>org.springframework.boot</groupId> 
-			<artifactId>spring-boot-starter-cache</artifactId> 
-		</dependency> 
 		
 		<!-- JASPERSOFT IREPORT -->
 		<dependency> 
@@ -135,24 +116,10 @@
 			<scope>compile</scope> 
 		</dependency>
 
-		<!-- JACKSON | JSON -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<scope>compile</scope>
-		</dependency>
-
 		<!-- SPRING BOOT TEST -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<!-- JUNIT -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

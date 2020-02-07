@@ -17,15 +17,15 @@
 <body>
 	<section class="container" layout:fragment="conteudo">
 
-		<h1 class="text-center" th:if="${proprietario.novo}">Cadastrar Proprietario</h1>
-		<h1 class="text-center" th:unless="${proprietario.novo}" th:text="|Edição de ${proprietario.nome}|">Editar Proprietario</h1>
+		<h1 class="text-center" th:if="${proprietario.novo}">Cadastrar Proprietário</h1>
+		<h1 class="text-center" th:unless="${proprietario.novo}" th:text="|Edição de ${proprietario.nome}|">Editar Proprietário</h1>
 		
 		<hr />
 
 		<div aria-label="breadcrumb">
 			<ol class="breadcrumb">
 		    	<li class="breadcrumb-item"><a th:href="@{/}">Dashboard</a></li>
-		    	<li class="breadcrumb-item"><a th:href="@{/proprietarios}">Proprietarios</a></li>
+		    	<li class="breadcrumb-item"><a th:href="@{/proprietarios}">Proprietários</a></li>
 		    	<li class="breadcrumb-item active" aria-current="page">Novo</li>
 			</ol>
 		</div>

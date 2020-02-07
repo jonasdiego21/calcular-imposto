@@ -4,7 +4,7 @@ CREATE TABLE cidade (
   codigo_estado bigint(20) DEFAULT NULL,
   FOREIGN KEY (codigo_estado) REFERENCES estado (codigo)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*
+
 insert into cidade (codigo, nome, codigo_estado) values (1, 'Acrelândia', 1);
 insert into cidade (codigo, nome, codigo_estado) values (2, 'Assis Brasil', 1);
 insert into cidade (codigo, nome, codigo_estado) values (3, 'Brasiléia', 1);

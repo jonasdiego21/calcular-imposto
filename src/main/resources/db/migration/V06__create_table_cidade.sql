@@ -623,7 +623,7 @@ insert into cidade (codigo, nome, codigo_estado) values (615, 'Vitória da Conqu
 insert into cidade (codigo, nome, codigo_estado) values (616, 'Wagner', 5);
 insert into cidade (codigo, nome, codigo_estado) values (617, 'Wanderley', 5);
 insert into cidade (codigo, nome, codigo_estado) values (618, 'Wenceslau Guimarães', 5);
-insert into cidade (codigo, nome, codigo_estado) values (619, 'Xique-Xique', 5);*/
+insert into cidade (codigo, nome, codigo_estado) values (619, 'Xique-Xique', 5);
 insert into cidade (codigo, nome, codigo_estado) values (620, 'Abaiara', 6);
 insert into cidade (codigo, nome, codigo_estado) values (621, 'Acarape', 6);
 insert into cidade (codigo, nome, codigo_estado) values (622, 'Acaraú', 6);
